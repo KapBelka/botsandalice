@@ -89,13 +89,13 @@ def handle_dialog(req, res):
     # Если он написал 'ладно', 'куплю', 'покупаю', 'хорошо', 
     # то мы считаем, что пользователь согласился.
     # Подумайте, всё ли в этом фрагменте написано "красиво"?
-	user_answers = ['ладно', 'куплю', 'покупаю', 'хорошо']
-	for elem in user_answers:
-		if elem in req['request']['original_utterance'].lower():
-			# Пользователь согласился, прощаемся.
-			res['response']['text'] = 'Слона можно найти на Яндекс.Маркете!'
-			res['response']['end_session'] = True
-			return
+    user_answers = ['ладно', 'куплю', 'покупаю', 'хорошо']
+    for elem in user_answers:
+        if elem in req['request']['original_utterance'].lower():
+            # Пользователь согласился, прощаемся.
+            res['response']['text'] = 'Слона можно найти на Яндекс.Маркете!'
+            res['response']['end_session'] = True
+            return
     # Если нет, то убеждаем его купить слона!
     res['response']['text'] = \
         f"Все говорят '{req['request']['original_utterance']}', а ты купи слона!"
